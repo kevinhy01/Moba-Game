@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <!--[if IE]><script src="tower/util/excanvas/excanvas.js"></script><![endif]-->
+    <script type="text/javascript" src="tower/util/canvasManager.js"></script>
+    <script type="text/javascript" src="tower/util/audioManager.js"></script>
+    <script type="text/javascript" src="tower/util/jsMiniUtil.js"></script>
+    <script type="text/javascript" src="tower/modules/main.js"></script>
+    <script type="text/javascript">
+        var canvasManager = null;
+        var audioManager = null;
+        var juego = null;
+        function init()
+        {            
+            gameCanvas = $("mainCanvas");
+            canvasManager = new CanvasManager("mainCanvas");
+            juego = new Game(canvasManager);
+            juego.start();
+                     
+            // AUDIO TEST
+            /*audioManager = new AudioManager();
+            audioManager.init(5);            
+            audioManager.loadSounds(new Array('tower/sound/echo.mp3'), onLoadAudios);*/
+            
+        }
+        /*function onLoadAudios()
+        {
+            alert("hoa");
+            audioManager.playSound(0);
+        }*/
+    </script>
+    <style type="text/css">
+        body
+        {
+            color: greenyellow;
+            font-weight: bold;
+            font-family: Arial;
+        }
+    </style>
+  </head>
+  <body onload = "init();" style="background-color: black;">
+      <br />
+      <br />
+      <center>
+        NOVA MOBA
+        <br /><br />
+        <div id = "mainCanvasContainer">
+            <canvas id = "mainCanvas" width = '700' height = '1000'>
+                <b>Canvas no support :(</b>
+            </canvas>
+        </div>
+        <br /><br />
+        <div id="debugWindow" style="width: 800px; height: 400px;"></div>
+    </center>
+  </body>
+</html>
