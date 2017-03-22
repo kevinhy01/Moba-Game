@@ -38,6 +38,7 @@ function EnemyFactory()
         var enemy;
         switch (type)
         {
+            //(id, type, armor, speed, damage, scoreReward, moneyReward, energy, attackRange,bulletType)
             case "malito":
                 enemy = new Enemy(enemyOuid++, type, 3, .5, 5, 2, 100,100,60,"waterDamage");//water
                 break;
