@@ -1,13 +1,10 @@
-/*
- *   LEVEL
- */
 function Level(name, initialMoney, techLevel)
 {
     this.name = name;
     this.initialMoney = initialMoney;
     this.techLevel = techLevel;
     // CREATE TWO LAYERS MAP
-    this.map = new LogicMap(7, 10, 2);
+    this.map = new LogicMap(5, 8, 2);
     this.paths = new Array();
     this.hordes = new Array();
 	this.horde2s = new Array();
@@ -76,11 +73,6 @@ function Level(name, initialMoney, techLevel)
                 }
             }
         }
-        // FIX CORNERS - ASSIGN A SPECIFIC TYPE FOR VISUALLY REPRESENTING THE CORNERS
-        /*for (var pathPointIndex = 0; pathPointIndex < allPathPoints.length; pathPointIndex++)
-        {
-            // TODO : IMPLEMENT THIS !
-            var pathPoint = allPathPoints[pathPointIndex];
-        }*/
+
     };
 }

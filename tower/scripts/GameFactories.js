@@ -1,4 +1,3 @@
-// USE IT TO CREATE AND GET A NEW BULLET
 function BulletFactory()
 {
     var bulletOuid = 0;
@@ -38,7 +37,6 @@ function EnemyFactory()
         var enemy;
         switch (type)
         {
-            //(id, type, armor, speed, damage, scoreReward, moneyReward, energy, attackRange,bulletType)
             case "malito":
                 enemy = new Enemy(enemyOuid++, type, 3, .5, 5, 2, 100,100,60,"waterDamage");//water
                 break;
@@ -46,10 +44,10 @@ function EnemyFactory()
                 enemy = new Enemy(enemyOuid++, type, 3, .3, 5, 2, 100,70,100,"fireDamage");//fire
                 break;
 			case "e_hero":
-                enemy = new Enemy(enemyOuid++, type, 7, 1.0, 2, 2, 100,260,70,"smallDamage");
+                enemy = new Enemy(enemyOuid++, type, 7, 1.0, 2, 2, 100,600,70,"smallDamage");
                 break;
 			case "f_hero":
-                enemy = new Enemy(enemyOuid++, type, 7, .6, 2, 2, 100,260,70,"smallDamage");
+                enemy = new Enemy(enemyOuid++, type, 7, .6, 2, 2, 100,600,70,"smallDamage");
                 break;
 			case "f_malito":
                 enemy = new Enemy(enemyOuid++, type, 3, .6, 5, 2, 100,100,60,"waterDamage");

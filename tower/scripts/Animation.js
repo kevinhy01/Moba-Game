@@ -1,4 +1,3 @@
-// SIMPLE ANIMATION
 function Animation(imageSrc, frameWidth, frameHeight, framesCount, delay)
 {
     this.imageSrc = imageSrc;

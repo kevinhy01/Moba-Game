@@ -15,7 +15,6 @@ function AnimationManager(resourceManager)
             {
                 case "chinoky":
                     image = this.resourceManager.getImage('tower');
-                    // animation = new Animation(image, image.width / 2, image.height, 2, 15);
                     animation = new Animation(image, image.width / 4, image.height, 2, 15);
                     animation.scenes = [
                         {name:"default", firstFrame: 0, lastFrame: 1, gotoAndPlay: ""},
@@ -24,7 +23,6 @@ function AnimationManager(resourceManager)
                     break;
                 case "chinoky_2":
                     image = this.resourceManager.getImage('tower');
-                    // animation = new Animation(image, image.width / 2, image.height, 2, 15);
                     animation = new Animation(image, image.width / 4, image.height, 1, 15);
 					animation.scenes = [
                         {name:"default", firstFrame: 0, lastFrame: 1, gotoAndPlay: ""},
@@ -33,7 +31,6 @@ function AnimationManager(resourceManager)
                     break;
 				case "chinoky_3":
                     image = this.resourceManager.getImage('tower');
-                    // animation = new Animation(image, image.width / 2, image.height, 2, 15);
                     animation = new Animation(image, image.width / 4, image.height, 1, 15);
 					animation.scenes = [
                         {name:"default", firstFrame: 0, lastFrame: 1, gotoAndPlay: ""},
@@ -42,7 +39,6 @@ function AnimationManager(resourceManager)
                     break;
 				case "chinoky_4":
                     image = this.resourceManager.getImage('tower');
-                    // animation = new Animation(image, image.width / 2, image.height, 2, 15);
                     animation = new Animation(image, image.width / 4, image.height, 1, 15);
 					animation.scenes = [
                         {name:"default", firstFrame: 0, lastFrame: 1, gotoAndPlay: ""},
@@ -97,17 +93,17 @@ function AnimationManager(resourceManager)
             {
 				case "smallDamage":
 					image = this.resourceManager.getImage('smallDamage');
-					// animation = new Animation(image, image.width / 2, image.height, 2, 15);
+
 					animation = new Animation(image, image.width, image.height, 4, 15);
 					break;
 				case "waterDamage":
 					image = this.resourceManager.getImage('waterDamage');
-					// animation = new Animation(image, image.width / 2, image.height, 2, 15);
+
 					animation = new Animation(image, image.width, image.height, 4, 15);
 					break;
 				case "fireDamage":
 					image = this.resourceManager.getImage('fireDamage');
-					// animation = new Animation(image, image.width / 2, image.height, 2, 15);
+
 					animation = new Animation(image, image.width, image.height, 4, 15);
 				break;
 			}

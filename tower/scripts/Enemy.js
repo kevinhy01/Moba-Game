@@ -18,7 +18,6 @@ function Enemy(id, type, armor, speed, damage, scoreReward, moneyReward, energy,
     this.inAction = false;
     this.alive = true;
     this.pathIndexTarget = 1;
-    // TO DRAW SPRITE IN DIRECTION (2 : DOWN , 4 : LEFT, 6 : RIGHT, 8 : UP, 5 : NO INITIALIZED)
     this.direction = 5;
     // TO DRAW / OR NOT CROSSHAIRS OVER THE SPRITE
     this.targeted = false;
@@ -30,14 +29,13 @@ function Enemy(id, type, armor, speed, damage, scoreReward, moneyReward, energy,
 	this.attackRange = attackRange;//70
 	this.bulletType = bulletType;
 	
-	this.eflag = 0;//e_hero meet f_hero eflag =1
-	this.echange = 0;//e change distance
+	this.eflag = 0;
+	this.echange = 0;
 	this.epath = new Path();
-	this.f_meeteflag0 = 0;//f_hero meet first f_hero eflag =1
+	this.f_meeteflag0 = 0;
 	this.fpath0 = new Path();
 	this.f_meeteflag1 = 0;
-	//path.addPoint(3, 6);
-	//path.addPoint(3, 1);
+
 	
     this.setRelativePosition = function(relativePosition)
     {
@@ -48,6 +46,14 @@ function Enemy(id, type, armor, speed, damage, scoreReward, moneyReward, energy,
     {
 		if(this.eflag == 3 )
 		{
+			
+			if(this.realPosition.y<=300)
+			{
+				this.eflag =4;
+				this.epath.addPoint(2, 1);
+				this.epath.addPoint(2, 7);
+				
+			}
 			path = this.epath;
 			this.speed = 0.8;
 		}
@@ -84,18 +90,7 @@ function Enemy(id, type, armor, speed, damage, scoreReward, moneyReward, energy,
         }
         else if (this.realPosition.y < realTarget.y)
         {
-			/*if(this.eflag == 1)
-			{
-				if (this.realPosition.y - realTarget.y < scalarSpeed)
-					scalarSpeed = this.realPosition.y - realTarget.y;
-				v2Speed = new Vector2(0, scalarSpeed * -1);
-				// [ MOVE UP ]
-				console.log(path);
-				this.direction = 8;
-				this.realAngle = 1.5 * Math.PI;
-				console.log("down");
-				//this.eflag = 2;
-			}*/
+
 			{
 				if (realTarget.y - this.realPosition.y < scalarSpeed)
 					scalarSpeed = realTarget.y - this.realPosition.y;
@@ -123,40 +118,36 @@ function Enemy(id, type, armor, speed, damage, scoreReward, moneyReward, energy,
 		{
 			this.echange = this.realPosition.y + this.attackRange*0.2;
 			this.eflag = 2;
-			//this.epath.addPoint(3, 6);
-			//this.epath.addPoint(3, 1);
-			//console.log(cellTarget);
+
 		}
 		if(this.eflag == 2)
 		{
 			if(this.realPosition.y>=this.echange && this.echange!=0)
 			{
 				this.eflag = 3;
-				this.epath.addPoint(3, 8);
-				this.epath.addPoint(3, 1);
+				this.epath.addPoint(2, 7);
+				this.epath.addPoint(2, 1);
 				
-				//console.log(cellTarget);
+
 			}
-			//this.echange = this.realPosition.y + this.attackRange*0.5;
 			
 		}
 		if(this.f_meeteflag0 == 1)
 		{
 			this.speed = 0.8;
-			//console.log("find");
-			//console.log(this.realPosition.y);
-			if(this.realPosition.y<=500)
+
+			if(this.realPosition.y<=800)
 			{
 				this.f_meeteflag0 =2;
-				this.fpath0.addPoint(3, 1);
-				this.fpath0.addPoint(3, 8);
+				this.fpath0.addPoint(2, 1);
+				this.fpath0.addPoint(2, 7);
 				
 			}
 		}
 		if(this.f_meeteflag0 == 2)
 		{
 			this.speed = 0.8;
-			if(this.realPosition.y>=700)
+			if(this.realPosition.y>=1000)
 			{
 				this.f_meeteflag0 =3;
 				//console.log(this.realPosition.y);
@@ -186,8 +177,7 @@ function Enemy(id, type, armor, speed, damage, scoreReward, moneyReward, energy,
             this.alive = false;
         return this.alive;
     };
-
-	/* ACTION METHOD 2 : AIM THE ENEMY CLOSEST TO THE BASE */
+	
     this.doAction2 = function(enemies, stowers,baseRealPosition)
     {
         var selectedEnemy = this.aim(enemies, stowers, baseRealPosition);
@@ -230,7 +220,7 @@ function Enemy(id, type, armor, speed, damage, scoreReward, moneyReward, energy,
 			if(this.type == "f_hero" && selectedEnemy.type == "e_hero" && this.f_meeteflag0 == 0) // f_hero meet first
 			{
 				this.f_meeteflag0 = 1;//meet e_hero
-				//console.log(this.f_meeteflag0);
+
 			}
 			
 			

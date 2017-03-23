@@ -1,4 +1,3 @@
-// THE GAME (CANVAS MANAGER REQUIRED)
 function Game(canvasManager)
 {
     this.canvasManager = canvasManager;
@@ -16,9 +15,6 @@ function Game(canvasManager)
 	this.bottomtowers = new Array();
     this.bullets = new Array();
     this.entities = new Array();
-    //this.clouds = this.cloudFactory.buildClouds(new Vector2(800, 300), 3);
-    // TO ADD A NEW TOWER
-    // this.towerTypeSelected = null;
     // REPRESENT THE CURRENT LEVEL WHERE IS PLAYING
     this.currentLevel = null;
     this.money = 0;
@@ -51,15 +47,14 @@ function Game(canvasManager)
         {
             // LOADING...
         }
-        //this.resourceManager.playSound("echo");
         // TEST LEVEL
         this.currentLevel = new Level("test", 1500);
         this.money = this.currentLevel.initialMoney;
         this.visualMoney = this.money;
         // PATH DE PRUEBA
         var path = new Path();
-		path.addPoint(3, 8);
-		path.addPoint(3, 1);
+		path.addPoint(2, 7);
+		path.addPoint(2, 1);
 		
 		
         
@@ -67,11 +62,11 @@ function Game(canvasManager)
 		
 		var path2 = new Path();
 		
-		path2.addPoint(3, 1);
-		path2.addPoint(3, 8);
+		path2.addPoint(2, 1);
+		path2.addPoint(2, 7);
         this.currentLevel.addPath(path2);
         // BASE REAL POSITION
-        this.baseRealPosition.set(800, 400);
+        this.baseRealPosition.set(1600, 1000);
         // HORDE
 		var horde2 = new Horde(20, 50, path2);//from top to down
         var horde = new Horde(20, 50, path);
@@ -83,52 +78,29 @@ function Game(canvasManager)
 		horde.addEnemies("f_hero", 1);
 		horde.addEnemies("f_malito", 3);
 		horde.addEnemies("f_maluko", 2);
-		horde.addEnemies("f_maluko", 10);
-		
-		/*
-		horde2.addEnemies("malito", 1);
-		horde.addEnemies("f_maluko", 1);
-		/**/
-		//horde2.addEnemies("hero_malito", 1);
 
-		//horde.addEnemies("hero_maluko", 1);
-		//horde.addEnemies("f_maluko", 10);
-		//horde.addEnemies("f_malito", 10);
-        
 		this.currentLevel.addHorde2(horde2);
         this.currentLevel.addHorde(horde);
         
         // INIT LEVEL
         this.currentLevel.init();
-        // TOWER TEST
-        /* this.addTower("chinoky", new Vector2(155, 155));
-        this.addTower("chinoky", new Vector2(305, 255));
-        this.addTower("chinoky", new Vector2(455, 155));
-        this.addTower("chinoky", new Vector2(455, 355)); */
-		//realPosition = new Vector2(155, 105);
-		//alert((this.selectedCellPosition.x * 50) + 5);
-		//alert((this.selectedCellPosition.y * 50) + 5);
-		this.addTower("chinoky", new Vector2(365, 0),2);
-		//this.addTower("chinoky_3", new Vector2(410, 100));
-		//this.addTower("chinoky_2", new Vector2(410, 555));
-		this.addTower("chinoky_2", new Vector2(365, 950),2);
-		
-		this.addTower("chinoky_3", new Vector2(365, 100),3);
-		this.addTower("chinoky_4", new Vector2(365, 850),3);
+		this.addTower("chinoky", new Vector2(465, 100),2);
+		this.addTower("chinoky_2", new Vector2(465, 1550),2);	
+		this.addTower("chinoky_3", new Vector2(465, 400),3);
+		this.addTower("chinoky_4", new Vector2(465, 1100),3);
 		
 		
 		this.toptowers[0] = this.towers[0];
 		this.toptowers[1] = this.towers[2];
 		this.bottomtowers[0] = this.towers[3];
 		this.bottomtowers[1] = this.towers[1];
-
         this.state = "playing";
     };
 	this.addOnes = function()
 	{
 		var path = new Path();
-		path.addPoint(3, 8);
-		path.addPoint(3, 1);
+		path.addPoint(2, 7);
+		path.addPoint(2, 1);
 		
 		
         
@@ -136,11 +108,10 @@ function Game(canvasManager)
 		
 		var path2 = new Path();
 		
-		path2.addPoint(3, 1);
-		path2.addPoint(3, 8);
+		path2.addPoint(2, 1);
+		path2.addPoint(2, 7);
         this.currentLevel.addPath(path2);
         // BASE REAL POSITION
-        //this.baseRealPosition.set(800, 400);
         // HORDE
 		var horde2 = new Horde(20, 50, path2);//from top to down
         var horde = new Horde(20, 50, path);
@@ -155,19 +126,7 @@ function Game(canvasManager)
 		horde.addEnemies("f_malito", 1);
 		horde.addEnemies("f_maluko", 2);
 		horde.addEnemies("f_malito", 2);
-		
-		
-		
-		/*
-		horde2.addEnemies("malito", 1);
-		horde.addEnemies("f_maluko", 1);
-		/**/
-		//horde2.addEnemies("hero_malito", 1);
 
-		//horde.addEnemies("hero_maluko", 1);
-		//horde.addEnemies("f_maluko", 10);
-		//horde.addEnemies("f_malito", 10);
-        
 		this.currentLevel.addHorde2(horde2);
         this.currentLevel.addHorde(horde);
         
@@ -179,7 +138,6 @@ function Game(canvasManager)
     {
         var cellPosition = getCellCoords(realPosition.x, realPosition.y);
         var towerAdded = false;
-        //if (this.currentLevel.map.getLogicCell(cellPosition.x, cellPosition.y) === 0)
         {
             var tower = this.towerFactory.buildTower(type, cellPosition);
             if (tower.cost <= this.money)
@@ -194,17 +152,13 @@ function Game(canvasManager)
         this.mapRedrawRequired = true;
         return towerAdded;
     };
-    // **********
-    // DO ACTIONS
-    // **********
+
     this.doActions = function()
     {
         this.gameTimer++;        
         var enemiesInAction = new Array();
 		var enemiesInAction2 = new Array();
         var damage = 0;
-		//var e_hores = new Array();//hore2
-		//var f_hores = new Array();//hore
         // HORDES / ENEMIES ACTION
         for (var hordeIndex = 0; hordeIndex < this.currentLevel.hordes.length; hordeIndex++)
         {
@@ -216,7 +170,7 @@ function Game(canvasManager)
             damage += this.currentLevel.horde2s[hordeIndex].doAction(this.gameTimer);
             enemiesInAction2 = enemiesInAction2.concat(this.currentLevel.horde2s[hordeIndex].enemiesInAction);//from top to down
         }
-		//console.log(enemiesInAction2);
+
         // BASE DAMAGE
         this.baseEnergy -= damage;
         if (this.baseEnergy <= 0)
@@ -226,7 +180,7 @@ function Game(canvasManager)
 		if(this.gameTimer >=1300 && this.gameTimer % 1300 ==0 )
 		{
 			this.addflag =1;
-			//console.log(this.gameTimer);
+
 		}
 		
         // TOWERS ACTION
@@ -235,8 +189,7 @@ function Game(canvasManager)
 		var towertype = "chinoky";
         for (var towerIndex = 0; towerIndex < this.towers.length; towerIndex++)
         {
-            // shot = this.towers[towerIndex].doAction(enemiesInAction);
-			// console.log(this.towers[towerIndex].getType());
+
 			towertype = this.towers[towerIndex].getType();
 			if(towertype == "chinoky" ||towertype == "chinoky_3" )
 			{
@@ -309,22 +262,14 @@ function Game(canvasManager)
         }
 		
 		
-        // OTHERS
-        // CLOUDS
-        /*for (var cloudIndex = 0; cloudIndex < this.clouds.length; cloudIndex++)
-        {
-            this.clouds[cloudIndex].doAction();
-        }*/
+
         // MONEY VISUAL INCREMENT/DECREMENT EFFECT
         if (this.visualMoney < this.money)
             this.visualMoney++;
         else if (this.visualMoney > this.money)
             this.visualMoney--;
     };
-    // ********
-    // DRAW ALL
-    // ********
-    // DRAW MAP
+
     this.drawMap = function()
     {
         if (this.bgImageData === null || this.drawMapMode === "redraw" || this.mapRedrawRequired)
@@ -338,18 +283,18 @@ function Game(canvasManager)
                 {
                     typeId = this.currentLevel.map.getLogicCell(x, y);
                     if (typeId === 0)
-                        this.canvasManager.drawImage(this.resourceManager.getImage('grass'), x * 100, y * 100);
+                        this.canvasManager.drawImage(this.resourceManager.getImage('grass'), x * 200, y * 200);
                     else if (typeId === 1)
-                        this.canvasManager.drawImage(this.resourceManager.getImage('road'), x * 100, y * 100);
+                        this.canvasManager.drawImage(this.resourceManager.getImage('road'), x * 200, y * 200);
                     else if (typeId === 2)
                     {
-                        this.canvasManager.drawImage(this.resourceManager.getImage('road'), x * 100, y * 100);
-                        this.canvasManager.drawImage(this.resourceManager.getImage('towerBase'), x * 100, y * 100);
+                        this.canvasManager.drawImage(this.resourceManager.getImage('road'), x * 200, y * 200);
+                        this.canvasManager.drawImage(this.resourceManager.getImage('towerBase'), x * 200, y * 200);
                     }
 					else if (typeId === 3)
                     {
-                        this.canvasManager.drawImage(this.resourceManager.getImage('road'), x * 100, y * 100);
-                        this.canvasManager.drawImage(this.resourceManager.getImage('towerBase2'), x * 100, y * 100);
+                        this.canvasManager.drawImage(this.resourceManager.getImage('road'), x * 200, y * 200);
+                        this.canvasManager.drawImage(this.resourceManager.getImage('towerBase2'), x * 200, y * 200);
                     }
                 }
             }
@@ -378,10 +323,10 @@ function Game(canvasManager)
                 if (currentEnemy.alive)
                 {
                     // DRAW ENEMY
-                    //this.canvasManager.drawCircle(currentEnemy.realPosition.x, currentEnemy.realPosition.y, 5, "white", "red");
+ 
                     animation = this.animationManager.getAnimation(currentEnemy);
                     this.canvasManager.drawSprite(animation.imageSrc, currentEnemy.realPosition.x, currentEnemy.realPosition.y, currentEnemy.realAngle, 1, animation.frameRect);
-                    //this.canvasManager.drawCircle(currentEnemy.realPosition.x, currentEnemy.realPosition.y, 5, "white", "red");
+  
                     if (currentEnemy.targeted)
                     {
                         crosshairPosition.x = currentEnemy.realPosition.x - (this.resourceManager.getImage('crosshair').width / 2);
@@ -396,7 +341,7 @@ function Game(canvasManager)
                         enemyEnergyBarColor = "yellow";
                     else
                         enemyEnergyBarColor = "red";
-                    //this.canvasManager.drawRectangle(currentEnemy.realPosition.x - 12.5, currentEnemy.realPosition.y - 15, currentEnemy.energy / 4, 2, "white", enemyEnergyBarColor);
+   
                     this.canvasManager.drawEnergyBar("h", currentEnemy.realPosition.x - 12.5, currentEnemy.realPosition.y - 15, currentEnemy.energy / 4, 2, "white", enemyEnergyBarColor);
                 }
             }
@@ -412,10 +357,10 @@ function Game(canvasManager)
                 if (currentEnemy2.alive)
                 {
                     // DRAW ENEMY
-                    //this.canvasManager.drawCircle(currentEnemy2.realPosition.x, currentEnemy2.realPosition.y, 5, "white", "red");
+   
                     animation = this.animationManager.getAnimation(currentEnemy2);
                     this.canvasManager.drawSprite(animation.imageSrc, currentEnemy2.realPosition.x, currentEnemy2.realPosition.y, currentEnemy2.realAngle, 1, animation.frameRect);
-                    //this.canvasManager.drawCircle(currentEnemy2.realPosition.x, currentEnemy2.realPosition.y, 5, "white", "red");
+  
                     if (currentEnemy2.targeted)
                     {
                         crosshairPosition2.x = currentEnemy2.realPosition.x - (this.resourceManager.getImage('crosshair').width / 2);
@@ -430,7 +375,7 @@ function Game(canvasManager)
                         enemyEnergyBarColor = "yellow";
                     else
                         enemyEnergyBarColor = "red";
-                    //this.canvasManager.drawRectangle(currentEnemy2.realPosition.x - 12.5, currentEnemy2.realPosition.y - 15, currentEnemy2.energy / 4, 2, "white", enemyEnergyBarColor);
+  
                     this.canvasManager.drawEnergyBar("h", currentEnemy2.realPosition.x - 12.5, currentEnemy2.realPosition.y - 15, currentEnemy2.energy / 4, 2, "white", enemyEnergyBarColor);
                 }
             }
@@ -440,7 +385,7 @@ function Game(canvasManager)
         {
             currentTower = this.towers[towerIndex];
             animation = this.animationManager.getAnimation(currentTower);
-            //this.canvasManager.drawSprite(this.resourceManager.towerImage, currentTower.realPosition.x, currentTower.realPosition.y, degToRad(currentTower.turretAngle), 1);
+  
             this.canvasManager.drawSprite(animation.imageSrc, currentTower.realPosition.x, currentTower.realPosition.y, degToRad(currentTower.turretAngle), 1, animation.frameRect);
             // DRAW ATTACK RANGE
             if (currentTower.selected)
@@ -452,7 +397,7 @@ function Game(canvasManager)
 				enemyEnergyBarColor = "yellow";
 			else
 				enemyEnergyBarColor = "red";
-			//this.canvasManager.drawRectangle(currentEnemy.realPosition.x - 12.5, currentEnemy.realPosition.y - 15, currentEnemy.energy / 4, 2, "white", enemyEnergyBarColor);
+
 			this.canvasManager.drawEnergyBar("h", currentTower.realPosition.x - 12.5, currentTower.realPosition.y - 15, currentTower.energy / 4, 2, "white", enemyEnergyBarColor);
         }
         // BULLETS
@@ -463,8 +408,7 @@ function Game(canvasManager)
             {    
                 if (currentBullet.type === "smallDamage" )
 				{
-					 //animation = this.animationManager.getAnimation(currentBullet);
-					 //this.canvasManager.drawSprite(animation.imageSrc, currentBullet.realPosition.x, currentBullet.realPosition.y, currentBullet.realAngle, 1, animation.frameRect);
+	
 					 this.canvasManager.drawCircle(currentBullet.realPosition.x, currentBullet.realPosition.y, 2, "blue", "#CCCCCC");
 				}
 				else if(currentBullet.type === "waterDamage" ||currentBullet.type === "fireDamage")
@@ -483,34 +427,7 @@ function Game(canvasManager)
                     
             }
         }
-        // MOUSE SELECTOR
-        //this.canvasManager.drawRectangle(this.selectorPosition.x, this.selectorPosition.y, 50, 50, "red");
-        //this.canvasManager.drawImage(this.resourceManager.getImage('optionBox'), this.selectorPosition.x - 50, this.selectorPosition.y - 50);
-        // CLOUDS
-        /*for (var cloudIndex = 0; cloudIndex < this.clouds.length; cloudIndex++)
-        {
-            // this.clouds[cloudIndex].doAction();
-            var currentCloud = this.clouds[cloudIndex];
-            this.canvasManager.drawImage(this.resourceManager.getImage(currentCloud.type), currentCloud.realPosition.x, currentCloud.realPosition.y);
-        }*/
-        // INFO BOX
-        // BOX
-        //this.canvasManager.drawImage(this.resourceManager.getImage('moneyBox'), 645, 5);
-        // BASE ENERGY
-       
-        // MONEY
-        //this.canvasManager.drawText(this.visualMoney, 688, 36, "10pt Arial", "yellow");
-        // OPTION BOX
-        /*if (this.optionBoxVisible)
-        {
-            this.canvasManager.drawImage(this.resourceManager.getImage('optionBox'), (this.selectedCellPosition.x * 50) - 50, (this.selectedCellPosition.y * 50) - 50);
-        }*/
-        // GAME OVER
-        /*if (this.state === "gameover")
-            this.canvasManager.drawImage(this.resourceManager.getImage('gameOver'), 250, 250);
-        // MOUSE CROSSHAIR
-        this.canvasManager.drawImage(this.resourceManager.getImage('mouseCrosshair'), this.mouseRealPosition.x - (23/2), this.mouseRealPosition.y - (23/2)); 
-			*/
+        
     };
     // ANIMATE ALL ENTITIES
     this.animateAll = function()

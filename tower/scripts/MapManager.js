@@ -1,4 +1,3 @@
-// BASIC CELL MAP
 function LogicMap(width, height, layers)
 {
     this.width = width;

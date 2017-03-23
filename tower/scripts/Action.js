@@ -1,9 +1,3 @@
-/*
- *  HORDE
- *  [actionTime] : Time when the horde comes into action
- *  [actionDelay] : Action time between enemies
- *  [path] : Route that the enemies should follow
- */
 function Horde(actionTime, actionDelay, path)
 {
     this.actionTime = actionTime;
@@ -19,11 +13,11 @@ function Horde(actionTime, actionDelay, path)
     this.currentQuadrant = 0;
     this.active = true;
     this.relativeQuadrantPositions = new Array(5);
-    this.relativeQuadrantPositions[0] = new Vector2(12, -12);
+    this.relativeQuadrantPositions[0] = new Vector2(50, -50);
     this.relativeQuadrantPositions[1] = new Vector2(0, 0);
-    this.relativeQuadrantPositions[2] = new Vector2(-12, 12);
-    this.relativeQuadrantPositions[3] = new Vector2(12, 12);
-    this.relativeQuadrantPositions[4] = new Vector2(-12, -12);
+    this.relativeQuadrantPositions[2] = new Vector2(-50, 50);
+    this.relativeQuadrantPositions[3] = new Vector2(50, 50);
+    this.relativeQuadrantPositions[4] = new Vector2(-50, -50);
     this.addEnemy = function(type)
     {
         this.enemies.push(this.enemyFactory.getEnemy(type));

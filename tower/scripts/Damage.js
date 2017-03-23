@@ -1,6 +1,3 @@
-/*
- * BULLET
- */
 function Bullet(id, type, speed, damage, damageRange)
 {
     // ENTITIES SUPERCLASS (GAMEENTITY)

@@ -14,8 +14,8 @@ function ResourceManager()
     this.init = function(canvasManager)
     {
         // IMAGES
-        this.addImage("grass", relPath + "img/grass_3.png");
-        this.addImage("road", relPath + "img/road_2.png");
+        this.addImage("grass", relPath + "img/grass_5.png");
+        this.addImage("road", relPath + "img/road_5.png");
         this.addImage("towerBase", relPath + "img/towerbase.png");
 		this.addImage("towerBase2", relPath + "img/towerbase2.png");
         this.addImage("crosshair", relPath + "img/crosshair_2.png");
@@ -40,9 +40,7 @@ function ResourceManager()
 		this.addImage("fireDamage", relPath + "img/firebullet.png");
         //this.addImage("optionBox", relPath + "img/optionBox.png");
         this.loadImages(canvasManager);
-        // SOUNDS
-        //this.addSound("echo", relPath + "sound/echo.mp3");
-        //this.loadSounds();
+
     };
     // [CREATE / ADD / ASSOCIATE] IMAGES DEFINITIONS
     this.addImage = function (id, imageSrc)
@@ -72,17 +70,7 @@ function ResourceManager()
             imageDef['image'] = canvasManager.loadImage(imageDef['src'], this.imageLoaded(this));
         }
     };
-    // LOAD ALL SOUNDS
-    /*this.loadSounds = function()
-    {
-        var soundDef;
-        for (var i = 0; i < this.sounds.length; i++)
-        {
-            soundDef = this.sounds[i];
-            soundDef['sound'] = new Audio(soundDef['src']);
-        }
-    };*/
-    // IMAGE PRELOAD
+
     this.imageLoaded = function(resourceManager)
     {        
         resourceManager.imageLoadedCount++;
@@ -115,15 +103,5 @@ function ResourceManager()
     {
         return this.images[this.imagesIndexAssoc[id]]['image'];
     };
-    // PLAY A SOUND BY ID
-    /*this.playSound = function(id)
-    {
-        var sound = this.sounds[this.soundsIndexAssoc[id]]['sound'];
-        if (sound.complete)
-        {
-            sound.pause();
-            sound.currentTime = 0;
-            sound.play();
-        }
-    };*/
+
 }

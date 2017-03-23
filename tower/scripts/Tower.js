@@ -41,10 +41,7 @@ function Tower(id, type, attackRange, angularSpeed, bulletType, reloadTime, cost
         this.id = jsonObject.id;
         this.type = jsonObject.type;
         this.jsonLevelsDefs = jsonObject.levels;
-        /* this.attackRange = jsonObject.attackRange;
-        this.angularSpeed = jsonObject.angularSpeed;
-        this.bulletType = jsonObject.bulletType;
-        this.reloadTime = jsonObject.reloadTime; */
+
     };
     this.canLevelUp = function()
     {
@@ -157,8 +154,7 @@ function Tower(id, type, attackRange, angularSpeed, bulletType, reloadTime, cost
         }
         return shot;
     };
-    /* ACTION METHOD 2 : AIM THE ENEMY CLOSEST TO THE BASE */
- /* ACTION METHOD 2 : AIM THE ENEMY CLOSEST TO THE BASE */
+
     this.doAction2 = function(enemies, baseRealPosition)
     {
         var selectedEnemy = this.aim(enemies, baseRealPosition);

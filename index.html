@@ -2,11 +2,11 @@
   <head>
     <title></title>
     <meta charset="UTF-8">
-    <!--[if IE]><script src="tower/util/excanvas/excanvas.js"></script><![endif]-->
+	<link rel="icon" href="tower/img/favicon.ico" />
     <script type="text/javascript" src="tower/util/canvasManager.js"></script>
     <script type="text/javascript" src="tower/util/audioManager.js"></script>
     <script type="text/javascript" src="tower/util/jsMiniUtil.js"></script>
-    <script type="text/javascript" src="tower/modules/main.js"></script>
+    <script type="text/javascript" src="tower/main/main.js"></script>
     <script type="text/javascript">
         var canvasManager = null;
         var audioManager = null;
@@ -17,23 +17,14 @@
             canvasManager = new CanvasManager("mainCanvas");
             juego = new Game(canvasManager);
             juego.start();
-                     
-            // AUDIO TEST
-            /*audioManager = new AudioManager();
-            audioManager.init(5);            
-            audioManager.loadSounds(new Array('tower/sound/echo.mp3'), onLoadAudios);*/
-            
+
         }
-        /*function onLoadAudios()
-        {
-            alert("hoa");
-            audioManager.playSound(0);
-        }*/
+
     </script>
     <style type="text/css">
         body
         {
-            color: greenyellow;
+            color: white;
             font-weight: bold;
             font-family: Arial;
         }
@@ -43,11 +34,11 @@
       <br />
       <br />
       <center>
-        NOVA MOBA
+   SHAMAN'S WAR OF THE ELEMENTS
         <br /><br />
         <div id = "mainCanvasContainer">
-            <canvas id = "mainCanvas" width = '700' height = '1000'>
-                <b>Canvas no support :(</b>
+            <canvas id = "mainCanvas" width = '1000' height = '1600'>
+
             </canvas>
         </div>
         <br /><br />
