@@ -20,24 +20,25 @@ function ResourceManager()
 		this.addImage("towerBase2", relPath + "img/towerbase2.png");
         this.addImage("crosshair", relPath + "img/crosshair_2.png");
         this.addImage("mouseCrosshair", relPath + "img/mouseCrosshair_1.png");
-        this.addImage("malito", relPath + "img/malito.png");
-        this.addImage("maluko", relPath + "img/maluko.png");
+        this.addImage("maluko", relPath + "img/bak/fire2.png");
+        this.addImage("malito", relPath + "img/bak/ice2.png");
 		this.addImage("alien_3", relPath + "img/alien_3.png");
 		this.addImage("alien_2", relPath + "img/alien_2.png");
-		
-		this.addImage("f_malito", relPath + "img/f_malito.png");
-        this.addImage("f_maluko", relPath + "img/f_maluko.png");
+		this.addImage("ui", relPath + "img/ui-mockup.png");
+		this.addImage("f_maluko", relPath + "img/bak/fire2-b.png");
+        this.addImage("f_malito", relPath + "img/bak/ice2-b.png");
 		
 		
         //this.addImage("tower", relPath + "img/turret_3.png");
         this.addImage("tower", relPath + "img/turretAnimation.png");
         this.addImage("laserTower", relPath + "img/laserTurret_1.png");
         this.addImage("moneyBox", relPath + "img/moneyBox.png");
-        this.addImage("gameOver", relPath + "img/gameOver_1.png");
+     
 		
 		this.addImage("smallDamage", relPath + "img/waterbullet.png");
 		this.addImage("waterDamage", relPath + "img/waterbullet.png");
 		this.addImage("fireDamage", relPath + "img/firebullet.png");
+		this.addImage("img/ui-mockup.png");
         //this.addImage("optionBox", relPath + "img/optionBox.png");
         this.loadImages(canvasManager);
 

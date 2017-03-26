@@ -54,11 +54,11 @@ function AnimationManager(resourceManager)
             {
                 case "malito":                    
                     image = this.resourceManager.getImage('malito');
-                    animation = new Animation(image, image.width / 4, image.height, 4, 15);
+                    animation = new Animation(image, image.width /4, image.height, 4, 15);
                     break;
                 case "maluko":
                     image = this.resourceManager.getImage('maluko');
-                    animation = new Animation(image, image.width / 4, image.height, 4, 15);
+                    animation = new Animation(image, image.width /4 , image.height, 4, 15);
                     break;
 				case "hero_malito":
                     image = this.resourceManager.getImage('alien_3');

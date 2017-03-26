@@ -78,7 +78,7 @@ function CanvasManager(canvasId)
     // DRAW IMAGE
     this.drawImage = function(image, x, y)
     {
-        this.context.drawImage(image, x, y);
+        this.context.drawImage(image,x ,y);
     };
     // DRAW SPRITE
     this.drawSprite = function(image, x, y, rotation, scale, section)

@@ -71,13 +71,13 @@ function Game(canvasManager)
 		var horde2 = new Horde(20, 50, path2);//from top to down
         var horde = new Horde(20, 50, path);
 		horde2.addEnemies("e_hero", 1);
-		horde2.addEnemies("malito", 3);
+		horde2.addEnemies("maluko", 3);
 		horde2.addEnemies("maluko", 3);
 		//horde.addEnemies("f_hero", 1);
-		horde.addEnemies("f_maluko", 1);
+		horde.addEnemies("f_malito", 1);
 		horde.addEnemies("f_hero", 1);
 		horde.addEnemies("f_malito", 3);
-		horde.addEnemies("f_maluko", 2);
+		horde.addEnemies("f_malito", 2);
 
 		this.currentLevel.addHorde2(horde2);
         this.currentLevel.addHorde(horde);
@@ -116,15 +116,15 @@ function Game(canvasManager)
 		var horde2 = new Horde(20, 50, path2);//from top to down
         var horde = new Horde(20, 50, path);
 		horde2.addEnemies("maluko", 1);
-		horde2.addEnemies("malito", 1);
 		horde2.addEnemies("maluko", 1);
-		horde2.addEnemies("malito", 1);
 		horde2.addEnemies("maluko", 1);
-		horde2.addEnemies("malito", 1);
+		horde2.addEnemies("maluko", 1);
+		horde2.addEnemies("maluko", 1);
+		horde2.addEnemies("maluko", 1);
 		//horde.addEnemies("f_hero", 1);
-		horde.addEnemies("f_maluko", 1);
 		horde.addEnemies("f_malito", 1);
-		horde.addEnemies("f_maluko", 2);
+		horde.addEnemies("f_malito", 1);
+		horde.addEnemies("f_malito", 2);
 		horde.addEnemies("f_malito", 2);
 
 		this.currentLevel.addHorde2(horde2);
@@ -277,6 +277,7 @@ function Game(canvasManager)
             // CLEAR CANVAS
             this.canvasManager.clear();
             // DRAW MAP CELLS
+			
             for (var x = 0; x < this.currentLevel.map.width; x++)
             {
                 for (var y = 0; y < this.currentLevel.map.height; y++)
@@ -298,8 +299,10 @@ function Game(canvasManager)
                     }
                 }
             }
+			this.canvasManager.drawImage(this.resourceManager.getImage('ui'), x-5.3, y-8 );
             this.mapRedrawRequired = false;
             this.bgImageData = this.canvasManager.getImageData();
+			
         }
         else
             this.canvasManager.putImageData(this.bgImageData);
